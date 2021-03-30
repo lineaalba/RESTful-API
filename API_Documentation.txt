@@ -1,0 +1,60 @@
+Root:
+
+	GET:
+		URL: https://warm-everglades-29616.herokuapp.com/
+		Description: Gives the HATEOAS with all the links on what the user can do
+
+Accounts:
+
+	POST:
+		URL: https://warm-everglades-29616.herokuapp.com/accounts
+		Description: Register user, by sending credentials in body.
+	
+		URL: https://warm-everglades-29616.herokuapp.com/accounts/login
+		Description: Login user, by sending credentials in body.
+
+	GET:
+		URL: https://warm-everglades-29616.herokuapp.com/accounts
+		Description: View account, by sending user id in body.
+
+	PUT:
+		URL: https://warm-everglades-29616.herokuapp.com/accounts
+		Description: Update user, by sending updated credentials and user id in body.
+
+	DELETE:
+		URL: https://warm-everglades-29616.herokuapp.com/accounts
+		Description: Delete user, by sending user id in body.
+
+Catches:
+
+	POST:
+		URL: https://warm-everglades-29616.herokuapp.com/catches
+		Description: Add a new catch, by sending catch information in body.
+
+	GET:
+		URL: https://warm-everglades-29616.herokuapp.com/catches
+		Description: View all catches, or just one specific by sending catch id in body.
+
+	PUT:
+		URL: https://warm-everglades-29616.herokuapp.com/catches
+		Description: Update a catch, by sending catch id and updated catch information in body.
+
+	DELETE:
+		URL: https://warm-everglades-29616.herokuapp.com/catches
+		Description: Delete a catch, by sending catch id and account id in body.
+
+Webhooks:
+
+	POST:
+		URL: https://warm-everglades-29616.herokuapp.com/webhooks
+		Description: Register a webhook, by sending email, account id and url in body.
+
+	GET:
+		URL: https://warm-everglades-29616.herokuapp.com/webhooks
+		Description: View a webhook, webhook id in body.
+
+	DELETE:
+		URL: https://warm-everglades-29616.herokuapp.com/webhooks
+		Description: Delete a webhook, by sending account id and webhook id in body.
+
+

@@ -1,0 +1,2104 @@
+{
+	"info": {
+		"_postman_id": "8c6aab42-f7ca-4dc2-8c2b-957687295bc9",
+		"name": "LNU Fishing Club API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Root",
+			"item": [
+				{
+					"name": "Test HATEOAS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"RESTful API for saving fish catches at LNU Fishing Club\");\r",
+									"});\r",
+									"\r",
+									"// Self\r",
+									"pm.test(\"Correct self URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.self.href).to.eql(\"https://warm-everglades-29616.herokuapp.com\");\r",
+									"});\r",
+									"pm.test(\"Self method should be GET\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.self.method).to.eql(\"GET\");\r",
+									"});\r",
+									"\r",
+									"// Register\r",
+									"pm.test(\"Correct accounts register URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.accounts.register.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/accounts\");\r",
+									"});\r",
+									"pm.test(\"Accounts register method should be POST\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.accounts.register.method).to.eql(\"POST\");\r",
+									"});\r",
+									"\r",
+									"//Login\r",
+									"pm.test(\"Correct accounts login URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.accounts.login.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/accounts/login\");\r",
+									"});\r",
+									"pm.test(\"Accounts login method should be POST\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.accounts.login.method).to.eql(\"POST\");\r",
+									"});\r",
+									"\r",
+									"// Update account\r",
+									"pm.test(\"Correct accounts update URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.accounts.update.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/accounts\");\r",
+									"});\r",
+									"pm.test(\"Accounts update method should be PUT\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.accounts.update.method).to.eql(\"PUT\");\r",
+									"});\r",
+									"\r",
+									"// Delete account\r",
+									"pm.test(\"Correct accounts delete URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.accounts.delete.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/accounts\");\r",
+									"});\r",
+									"pm.test(\"Accounts delete method should be DELETE\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.accounts.delete.method).to.eql(\"DELETE\");\r",
+									"});\r",
+									"\r",
+									"// View account\r",
+									"pm.test(\"Correct accounts view URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.accounts.view.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/accounts\");\r",
+									"});\r",
+									"pm.test(\"Accounts view method should be GET\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.accounts.view.method).to.eql(\"GET\");\r",
+									"});\r",
+									"\r",
+									"// View all catches\r",
+									"pm.test(\"Correct catches viewAll URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.catches.viewAll.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/catches\");\r",
+									"});\r",
+									"pm.test(\"Catches viewAll method should be GET\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.catches.viewAll.method).to.eql(\"GET\");\r",
+									"});\r",
+									"\r",
+									"// View specific catch\r",
+									"pm.test(\"Correct catches viewOne URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.catches.viewOne.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/catches\");\r",
+									"});\r",
+									"pm.test(\"Catches viewOne method should be GET\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.catches.viewOne.method).to.eql(\"GET\");\r",
+									"});\r",
+									"\r",
+									"// Add catch\r",
+									"pm.test(\"Correct catches add URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.catches.add.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/catches\");\r",
+									"});\r",
+									"pm.test(\"Catches add method should be POST\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.catches.add.method).to.eql(\"POST\");\r",
+									"});\r",
+									"\r",
+									"// Update catch\r",
+									"pm.test(\"Correct catches update URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.catches.update.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/catches\");\r",
+									"});\r",
+									"pm.test(\"Catches update method should be PUT\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.catches.update.method).to.eql(\"PUT\");\r",
+									"});\r",
+									"\r",
+									"// Delete catch\r",
+									"pm.test(\"Correct catches delete URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.catches.delete.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/catches\");\r",
+									"});\r",
+									"pm.test(\"Catches delete method should be DELETE\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.catches.delete.method).to.eql(\"DELETE\");\r",
+									"});\r",
+									"\r",
+									"// View webhook\r",
+									"pm.test(\"Correct webhooks view URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.webhooks.view.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/webhooks\");\r",
+									"});\r",
+									"pm.test(\"Webhooks view method should be GET\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.webhooks.view.method).to.eql(\"GET\");\r",
+									"});\r",
+									"\r",
+									"// Add webhook\r",
+									"pm.test(\"Correct webhooks add URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.webhooks.add.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/webhooks\");\r",
+									"});\r",
+									"pm.test(\"Webhooks add method should be POST\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.webhooks.add.method).to.eql(\"POST\");\r",
+									"});\r",
+									"\r",
+									"// Delete webhook\r",
+									"pm.test(\"Correct webhooks delete URL\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.webhooks.delete.href).to.eql(\"https://warm-everglades-29616.herokuapp.com/webhooks\");\r",
+									"});\r",
+									"pm.test(\"Webhooks delete method should be DELETE\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData._links.webhooks.delete.method).to.eql(\"DELETE\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Register with wrong data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        firstname: \"Filippa\",\r",
+									"        lastname: \"Jakobsson\",\r",
+									"        // email: \"fj222nq@student.lnu.se\",\r",
+									"        password: \"password\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json().message;\r",
+									"    pm.test(\"Message Register failed\", function () {\r",
+									"        pm.expect(message).to.include(\"Register failed. Add firstname, lastname, email and password in body as JSON\");\r",
+									"    });   \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/accounts",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register correct data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        firstname: \"Filippa\",\r",
+									"        lastname: \"Jakobsson\",\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"        password: \"password\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 201);\r",
+									"        pm.expect(res).to.have.property('status', 'Created');\r",
+									"    });\r",
+									"    // const message = res.json().message;\r",
+									"    // pm.test(\"Message successfully created\", function () {\r",
+									"    //     pm.expect(message).to.include(\" Account successfully created!\");\r",
+									"    // });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/accounts",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register duplicate data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest2 = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"       firstname: \"Filippa\",\r",
+									"        lastname: \"Jakobsson\",\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"        password: \"password\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest2, function (err, res) {\r",
+									"    pm.test(\"Status code is 400, duplicate email\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/accounts",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with wrong credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts/login\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        email:\"fj222nq@student.lnu.se\",\r",
+									"        password:\"\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json().message;\r",
+									"    pm.test(\"Message to guide user\", function () {\r",
+									"        pm.expect(message).to.include(\"Add email and password in body as JSON\");\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/accounts/",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"accounts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with correct credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts/login\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        email:\"fj222nq@student.lnu.se\",\r",
+									"        password: \"password\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 201);\r",
+									"        pm.expect(res).to.have.property('status', 'Created');\r",
+									"        const accountID = res.json().data;\r",
+									"     \r",
+									"        pm.environment.set('accountID', accountID)\r",
+									"  \r",
+									"        let token\r",
+									"        for (const [key, value] of Object.entries(res.headers.reference)) {\r",
+									"            if (key === 'auth-token') { token = value }\r",
+									"        }\r",
+									"        pm.environment.set('token', token.value);\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// const correctRequest = {\r",
+									"//   url: 'https://warm-everglades-29616.herokuapp.com/accounts',\r",
+									"//   method: 'POST',\r",
+									"//   header: {\r",
+									"//     'Content-Type': 'application/json'\r",
+									"//   },\r",
+									"//   body: {\r",
+									"//     mode: 'raw',\r",
+									"//     raw: JSON.stringify({\r",
+									"//         email:\"fj222nq@student.lnu.se\",\r",
+									"//         password: \"password\"\r",
+									"//     })\r",
+									"//   }\r",
+									"// };\r",
+									"\r",
+									"// pm.sendRequest(correctRequest, function (err, res) {\r",
+									"//     const jsonData = res.json();\r",
+									"//     let token = undefined\r",
+									"//     for (const [key, value] of Object.entries(res.headers.reference)) {\r",
+									"//         if(key === 'Auth-Token') {\r",
+									"//             token = value\r",
+									"//         }\r",
+									"//     }\r",
+									"//         console.log(token.value)\r",
+									"// });\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiNjAzZThlNWIyZDhkNzgwMDE1MjQwYzBlIiwiZmlyc3RfbmFtZSI6IkZpbGlwcGEiLCJsYXN0X25hbWUiOiJKYWtvYnNzb24iLCJlbWFpbCI6ImZqMjIybnFAc3R1ZGVudC5sbnUuc2UiLCJpYXQiOjE2MTQ3MTcxMDIsImV4cCI6MTYxNDcyMDcwMn0._0m1g0u12NPtPq9aCUbop1Lh2o27EuLghS_fXR72O9A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"email\": \"fj222nq@student.lnu.se\",\r\n//     \"password\": \"password\"\r\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/accounts/",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"accounts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update account invalid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts\",\r",
+									"  method: \"PUT\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": \"12345\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"accountID\"),\r",
+									"        firstname: \"Ameli\",\r",
+									"        lastname: \"Jakobsson\",\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"        password: \"password\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 401\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json();\r",
+									"    pm.test(\"Message Invalid token\", function () {\r",
+									"        pm.expect(message).to.include(\"Invalid Token\");\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/accounts",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update account wrong data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts\",\r",
+									"  method: \"PUT\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"accountID\"),\r",
+									"        firstname: \"Ameli\",\r",
+									"        lastname: \"Jakobsson\",\r",
+									"        password: \"password\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"         pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/accounts",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update account correct data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts\",\r",
+									"  method: \"PUT\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"accountID\"),\r",
+									"        firstname: \"Ameli\",\r",
+									"        lastname: \"Jakobsson\",\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"        password: \"password\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"         pm.expect(res).to.have.property('code', 201);\r",
+									"        pm.expect(res).to.have.property('status', 'Created');\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/accounts",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete account wrong data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts\",\r",
+									"  method: \"DELETE\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: \"12345\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"         pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/accounts",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete account invalid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts\",\r",
+									"  method: \"DELETE\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": \"12345\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"accountID\")\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"     pm.test(\"Status code is 401\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json();\r",
+									"    pm.test(\"Message Invalid token\", function () {\r",
+									"        pm.expect(message).to.include(\"Invalid Token\");\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/accounts",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add catch correct data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"\t    accountID: pm.environment.get(\"accountID\"),\r",
+									"        specie: \"fish-specie\",\r",
+									"        weightKG: 5,\r",
+									"        lengthCM: 56,\r",
+									"        city: \"Fish-town\",\r",
+									"        lake: \"Fish-lake\",\r",
+									"        location: [122, 56],\r",
+									"        dateYYMMDD:\"210224\",\r",
+									"        imageURL: \"url\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 201);\r",
+									"        pm.expect(res).to.have.property('status', 'Created');\r",
+									"\r",
+									"        catchID = res.json().data._id\r",
+									"        pm.environment.set('catchID', catchID)\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Catches",
+			"item": [
+				{
+					"name": "Add catch correct data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"\t    accountID: pm.environment.get(\"accountID\"),\r",
+									"        specie: \"fish-specie\",\r",
+									"        weightKG: 5,\r",
+									"        lengthCM: 56,\r",
+									"        city: \"Fish-town\",\r",
+									"        lake: \"Fish-lake\",\r",
+									"        location: [122, 56],\r",
+									"        dateYYMMDD:\"210224\",\r",
+									"        imageURL: \"url\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 201);\r",
+									"        pm.expect(res).to.have.property('status', 'Created');\r",
+									"\r",
+									"        catchID = res.json().data._id\r",
+									"        pm.environment.set('catchID', catchID)\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add catch wrong data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"        specie: \"fish-specie\",\r",
+									"        weightKG: 5,\r",
+									"        lengthCM: 56,\r",
+									"        city: \"Fish-town\",\r",
+									"        lake: \"Fish-lake\",\r",
+									"        location: [122, 56],\r",
+									"        dateYYMMDD:\"210224\",\r",
+									"        imageURL: \"url\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add catch invalid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": \"12345\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"\t    accountID: pm.environment.get(\"accountID\"),\r",
+									"        specie: \"fish-specie\",\r",
+									"        weightKG: 5,\r",
+									"        lengthCM: 56,\r",
+									"        city: \"Fish-town\",\r",
+									"        lake: \"Fish-lake\",\r",
+									"        location: [122, 56],\r",
+									"        dateYYMMDD:\"210224\",\r",
+									"        imageURL: \"url\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"      pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json();\r",
+									"    pm.test(\"Message Invalid token\", function () {\r",
+									"        pm.expect(message).to.include(\"Invalid Token\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all catches correct token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"GET\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"\t   \r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 201);\r",
+									"        pm.expect(res).to.have.property('status', 'Created');\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all catches invalid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"GET\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": \"12345\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"\t   \r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"      pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json();\r",
+									"    pm.test(\"Message Invalid token\", function () {\r",
+									"        pm.expect(message).to.include(\"Invalid Token\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all catches no token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"GET\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    // \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"\t   \r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 401\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 401);\r",
+									"    });\r",
+									"    pm.test(\"Message Access denied\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"Access denied\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update catch correct data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"PUT\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"catchID\"),\r",
+									"\t    email: \"fj222nq@student.lnu.se\",\r",
+									"\t    accountID: pm.environment.get(\"accountID\"),\r",
+									"        specie: \"Shark\",\r",
+									"        weightKG: 5,\r",
+									"        lengthCM: 56,\r",
+									"        city: \"Fish-town\",\r",
+									"        lake: \"Fish-lake\",\r",
+									"        location: [122, 56],\r",
+									"        dateYYMMDD:\"210224\",\r",
+									"        imageURL: \"url\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 201);\r",
+									"        pm.expect(res).to.have.property('status', 'Created');\r",
+									"    });\r",
+									"    const message = res.json().message;\r",
+									"    pm.test(\"Message successfully updated\", function () {\r",
+									"        pm.expect(message).to.include(\"Catch successfully updated!\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update catch wrong data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"PUT\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        // id: pm.environment.get(\"catchID\"),\r",
+									"\t    email: \"fj222nq@student.lnu.se\",\r",
+									"\t    accountID: pm.environment.get(\"accountID\"),\r",
+									"        specie: \"Shark\",\r",
+									"        weightKG: 5,\r",
+									"        lengthCM: 56,\r",
+									"        city: \"Fish-town\",\r",
+									"        lake: \"Fish-lake\",\r",
+									"        location: [122, 56],\r",
+									"        dateYYMMDD:\"210224\",\r",
+									"        imageURL: \"url\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json().message;\r",
+									"    pm.test(\"Message to guide user\", function () {\r",
+									"        pm.expect(message).to.include('Add catch id as \"id\", email and updated specie, weightKG, lengthCM, city, lake, location, dateYYMMDD and imageURL in body as JSON');\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update catch invalid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"PUT\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    // \"auth-token\": pm.environment.get(\"token\")\r",
+									"    \"auth-token\": \"12345\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"catchID\"),\r",
+									"\t    email: \"fj222nq@student.lnu.se\",\r",
+									"\t    accountID: pm.environment.get(\"accountID\"),\r",
+									"        specie: \"Shark\",\r",
+									"        weightKG: 5,\r",
+									"        lengthCM: 56,\r",
+									"        city: \"Fish-town\",\r",
+									"        lake: \"Fish-lake\",\r",
+									"        location: [122, 56],\r",
+									"        dateYYMMDD:\"210224\",\r",
+									"        imageURL: \"url\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"     pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json();\r",
+									"    pm.test(\"Message Invalid token\", function () {\r",
+									"        pm.expect(message).to.include(\"Invalid Token\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete catch correct data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"DELETE\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"catchID\"),\r",
+									"\t    accountID: pm.environment.get(\"accountID\"),\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 201);\r",
+									"        pm.expect(res).to.have.property('status', 'Created');\r",
+									"    });\r",
+									"    const message = res.json().message;\r",
+									"    pm.test(\"Message successfully deleted\", function () {\r",
+									"        pm.expect(message).to.include(\"Catch successfully deleted!\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete catch wrong data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"DELETE\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"catchID\"),\r",
+									"\t    // accountID: pm.environment.get(\"accountID\"),\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json().message;\r",
+									"    pm.test(\"Message to guide user\", function () {\r",
+									"        pm.expect(message).to.include('Add catch id as \"id\" and account id as \"accountID\" to body as JSON');\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete catch invalid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/catches\",\r",
+									"  method: \"DELETE\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    // \"auth-token\": pm.environment.get(\"token\")\r",
+									"    \"auth-token\": \"12345\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"catchID\"),\r",
+									"\t    accountID: pm.environment.get(\"accountID\"),\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json();\r",
+									"    pm.test(\"Message Invalid token\", function () {\r",
+									"        pm.expect(message).to.include(\"Invalid Token\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/catches",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"catches"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Webhooks",
+			"item": [
+				{
+					"name": "Add webhook invalid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/webhooks\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    // \"auth-token\": pm.environment.get(\"token\")\r",
+									"    \"auth-token\": \"12345\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"\t    accountID: pm.environment.get(\"accountID\"),\r",
+									"        url: \"somerandomurl\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"     pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json();\r",
+									"    pm.test(\"Message Invalid token\", function () {\r",
+									"        pm.expect(message).to.include(\"Invalid Token\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/webhooks",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add webhook no token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/webhooks\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    // \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"\t    accountID: pm.environment.get(\"accountID\"),\r",
+									"        url: \"somerandomurl\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"      pm.test(\"Status code is 401\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 401);\r",
+									"    });\r",
+									"    pm.test(\"Message Access denied\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"Access denied\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/webhooks",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add webhook correct data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/webhooks\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"\t    accountID: pm.environment.get(\"accountID\"),\r",
+									"        url: \"somerandomurl\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 201);\r",
+									"        pm.expect(res).to.have.property('status', 'Created'); \r",
+									"    });\r",
+									"    const message = res.json().message;\r",
+									"    pm.test(\"Message successfully added\", function () {\r",
+									"        pm.expect(message).to.include(\"Webhook successfully added!\");\r",
+									"    });\r",
+									"    webhookID = res.json().data._id\r",
+									"    pm.environment.set('webhookID', webhookID)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/webhooks",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add webhook duplicate data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts\",\r",
+									"  method: \"POST\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        firstname: \"Filippa\",\r",
+									"        lastname: \"Jakobsson\",\r",
+									"        email: \"fj222nq@student.lnu.se\",\r",
+									"        password: \"password\"\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json().message;\r",
+									"    pm.test(\"Message register failed\", function () {\r",
+									"        pm.expect(message).to.include(\"Register failed. Email already taken\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/webhooks",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete webhook wrong data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/webhooks\",\r",
+									"  method: \"DELETE\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"webhookID\"),\r",
+									"        // accountID: pm.environment.get(\"accountID\")\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"      pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json().message;\r",
+									"    pm.test(\"Message to guide user\", function () {\r",
+									"        pm.expect(message).to.include('Add webhook id as \"id\" and account id as \"accountID\" to body as JSON');\r",
+									"    });\r",
+									"   \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/webhooks",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete webhook invalid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/webhooks\",\r",
+									"  method: \"DELETE\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    // \"auth-token\": pm.environment.get(\"token\")\r",
+									"    \"auth-token\": \"12345\"\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"webhookID\"),\r",
+									"        accountID: pm.environment.get(\"accountID\")\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"   pm.test(\"Status code is 400\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 400);\r",
+									"        pm.expect(res).to.have.property('status', 'Bad Request');\r",
+									"    });\r",
+									"    const message = res.json();\r",
+									"    pm.test(\"Message Invalid token\", function () {\r",
+									"        pm.expect(message).to.include(\"Invalid Token\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/webhooks",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete webhook no token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/webhooks\",\r",
+									"  method: \"DELETE\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    // \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"webhookID\"),\r",
+									"        accountID: pm.environment.get(\"accountID\")\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"   pm.test(\"Status code is 401\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 401);\r",
+									"    });\r",
+									"    pm.test(\"Message Access denied\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"Access denied\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/webhooks",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete webhook correct data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/webhooks\",\r",
+									"  method: \"DELETE\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"webhookID\"),\r",
+									"        accountID: pm.environment.get(\"accountID\")\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"        pm.expect(res).to.have.property('code', 201);\r",
+									"        pm.expect(res).to.have.property('status', 'Created'); \r",
+									"    });\r",
+									"    const message = res.json().message;\r",
+									"    pm.test(\"Message successfully deleted\", function () {\r",
+									"        pm.expect(message).to.include(\"Webhook successfully deleted!\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/webhooks",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete account",
+			"item": [
+				{
+					"name": "Delete account correct data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const postRequest = {\r",
+									"  url: \"https://warm-everglades-29616.herokuapp.com/accounts\",\r",
+									"  method: \"DELETE\",\r",
+									"  header: {\r",
+									"    \"Content-Type\": \"application/json\",\r",
+									"    \"auth-token\": pm.environment.get(\"token\")\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: \"raw\",\r",
+									"    raw: JSON.stringify({\r",
+									"        id: pm.environment.get(\"accountID\")\r",
+									"    })\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, function (err, res) {\r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"         pm.expect(res).to.have.property('code', 201);\r",
+									"        pm.expect(res).to.have.property('status', 'Created');\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-everglades-29616.herokuapp.com/accounts",
+							"protocol": "https",
+							"host": [
+								"warm-everglades-29616",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

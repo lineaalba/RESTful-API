@@ -1,0 +1,35 @@
+{
+  "name": "web-api-assignment",
+  "version": "1.0.0",
+  "description": "Web API assignment 2 1DV527",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "devstart": "nodemon --inspect src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:1dv527/student/fj222nq/web-api-assignment.git"
+  },
+  "author": "Filippa Jakobsson",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "http-errors": "^1.8.0",
+    "httpolyglot": "^0.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.17",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
+    "validator": "^13.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "nodemonConfig": {
+    "ext": "js, json, hbs, html, css"
+  }
+}
